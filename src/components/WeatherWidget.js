@@ -39,6 +39,14 @@ export default class WeatherWidget extends React.Component{
             <div className='WeatherWidget'>
             <img src={weather_icon_URL} alt={weather}></img>
             <h3>Feels like: {feels_like}</h3>
+            <input type='image' src='white-refresh-icon.png' alt='refresh' onClick={() =>
+                getOttawaWeatherNow().then(res => this.setState(
+                    {
+                        weather_loaded: true,
+                        weather_data: res
+                    }
+                ))
+            }/>
             </div>
             );
     }
